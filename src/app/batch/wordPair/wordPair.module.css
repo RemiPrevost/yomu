@@ -1,0 +1,29 @@
+.word-pair {
+    display: flex;
+    flex-direction: column;
+    color: var(--gray-alpha-200);
+}
+
+.word-pair .left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.word-pair button {
+    all: unset;
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.word-pair.active {
+    color: var(--foreground);
+}
+
+
+.word-pair h2 {
+    margin: 0;
+}
+

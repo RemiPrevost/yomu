@@ -1,0 +1,8 @@
+.batch  > * + * {
+    margin-top: 20px;
+}
+
+.batch {
+    display: flex;
+    flex-direction: column;
+}

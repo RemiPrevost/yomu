@@ -17,8 +17,8 @@
 @media (prefers-color-scheme: dark) {
   .page {
     --gray-rgb: 255, 255, 255;
-    --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
-    --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
+    --gray-alpha-200: rgba(var(--gray-rgb), 0.6);
+    --gray-alpha-100: rgba(var(--gray-rgb), 0.5);
 
     --button-primary-hover: #ccc;
     --button-secondary-hover: #1a1a1a;
@@ -44,13 +44,6 @@
 .main h1 {
   text-align: center;
   font-weight: 800;
-}
-
-.main input {
-  font-size: 1.5em;
-  padding: 0.5em;
-  border-radius: 20px;
-  border: var(--foreground) 1px solid;
 }
 
 .main button {

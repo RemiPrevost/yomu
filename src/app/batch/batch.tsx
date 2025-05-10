@@ -3,7 +3,6 @@
 import React, { useMemo } from "react";
 import { useCallback, useState } from "react";
 import WordPair from "./wordPair/wordPair";
-import Input from "./input/input";
 import styles from "./batch.module.css";
 import clsx from "clsx";
 
@@ -13,46 +12,57 @@ interface BatchProps {
 
 export default function Batch({batch}: BatchProps) {
     const [answers, setAnswers] = useState<string[]>([]); // Track the answers
-    const [index, setIndex] = useState<number>(0);
+    const [index, setIndex] = useState<number | undefined>(undefined);
     const [isChecking, setIsCheching] = useState<boolean>(false);
     
 
-    const handleSubmit = useCallback((answer: string) => {
-        setIndex((prevIndex) => (prevIndex + 1)); // Move to the next word pair
+    const setAnswer = useCallback((answer: string, index: number) => {
         setAnswers((prevAnswers) => {
             const newAnswers = [...prevAnswers];
             newAnswers[index] = answer; // Store the user's answer
             return newAnswers;
         });
-    }, [index]);
+    }, []);
+
+    const handleFocus = useCallback((state: boolean, idx: number) => {
+        setIndex(state ? idx : undefined); // Set the index when focused
+    }, []);
 
     const isReadyToCheck = useMemo(() => {
         return answers.length === batch.length && answers.every(answer => answer !== "");
     }, [answers, batch.length]);
 
+    const areAllCorrect = useMemo(() => {
+        return answers.length === batch.length && answers.every((answer, idx) => answer === batch[idx].ja);
+    }, [answers, batch]);
+
     return (
         <div className={clsx(styles.batch)}>
-            {batch.map((pair, idx) => (
-                <React.Fragment key={`${pair.en}-${idx}`}> {/* Add a unique key to the fragment */}
-                  <WordPair
-                    active={index === idx}
-                    answer={answers[idx]}
-                    en={pair.en}
-                    isChecking={isChecking}
-                    ja={pair.ja} // Show the answer if provided
-                    onClick={() => setIndex(idx)} // Set the index when clicked
-                  />
-                  {idx === index && (
-                    <Input
-                      handleSubmit={handleSubmit}
-                      initialAnswer={answers[idx]} // Pass the initial
+            <div>
+                {batch.map((pair, idx) => (
+                    <React.Fragment key={`${pair.en}-${idx}`}> {/* Add a unique key to the fragment */}
+                    <WordPair
+                        active={index === idx}
+                        answer={answers[idx]}
+                        en={pair.en}
+                        isChecking={isChecking}
+                        handleFocus={state => handleFocus(state, idx)} // Set the index when clicked
+                        ja={pair.ja} // Show the answer if provided
+                        setAnswer={answer => setAnswer(answer, idx)}
                     />
-                  )}
-                </React.Fragment>
-              ))}
-            {isReadyToCheck && (
-                <button onClick={() => setIsCheching(true)}>Check them all</button>
-            )}
+                    </React.Fragment>
+                ))}
+            </div>
+            <div className={styles.footer}>
+                {isReadyToCheck && !isChecking && (
+                    <button onClick={() => setIsCheching(true)}>Check now</button>
+                )}
+                {areAllCorrect && isChecking && (
+                    <button className={styles["end-button"]} onClick={() => {}}>
+                        End session
+                    </button>
+                )}
+            </div>
         </div>
     );
 }

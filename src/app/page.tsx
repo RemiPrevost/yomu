@@ -32,14 +32,12 @@ export default function Home() {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
+        <h1>読</h1> 
         {!isStarted ? (
           <button onClick={startApp}>START</button> // Button to start the app
         ) : (
           wordPairs.length > 0 && (
-            <>
-              <h1>読</h1>
               <Batch batch={batch} />
-            </>
           )
         )}
       </main>

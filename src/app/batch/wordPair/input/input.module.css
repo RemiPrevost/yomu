@@ -1,0 +1,15 @@
+.input {
+    font-size: 1.5em;
+    padding: 0.5em;
+    border-radius: 20px;
+    text-align: right;
+    border: 1px solid transparent;
+    box-sizing: border-box;
+    max-width: 210px;
+    background-color: transparent;
+    outline: none;
+}
+
+.input.active {
+    border-color: var(--foreground);
+}

@@ -7,11 +7,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   const filePath = path.join(process.cwd(), 'data', 'extracted_pairs.csv');
 
   try {
-    const results: { ja: string; en: string }[] = [];
+    const results: { en: string; id: string; ja: string; }[] = [];
 
     fs.createReadStream(filePath)
       .pipe(csvParser())
-      .on('data', (data) => results.push({ ja: data.ja, en: data.en }))
+      .on('data', (data) => results.push({ en: data.en, id: data.id, ja: data.ja }))
       .on('end', () => {
         res.status(200).json(results);
       });

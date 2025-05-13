@@ -3,6 +3,7 @@
     flex-direction: column;
     color: var(--gray-alpha-200);
     flex: 1;
+    padding: 10px 20px;
 }
 
 .word-pair > * + * {
@@ -10,7 +11,6 @@
 }
 
 .word-pair > .row {
-    padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     flex-direction: row;

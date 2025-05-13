@@ -26,8 +26,8 @@ fs.readFile(filePath, 'utf8', (err, data) => {
   const reversedMatches = matches.reverse();
 
   // Convert reversed matches to CSV format
-  const csvHeader = 'ja,en\n'; // ISO codes for Japanese and English
-  const csvRows = reversedMatches.map(({ h3, p }) => `${h3},${p}`).join('\n');
+  const csvHeader = 'id,ja,en\n'; // ISO codes for Japanese and English
+  const csvRows = reversedMatches.map(({ h3, p }, index) => `${index},"${h3}","${p}"`).join('\n');
   const csvContent = csvHeader + csvRows;
 
   // Write the CSV to a file

@@ -48,6 +48,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         res.status(200).json(filtered.slice(0, 10));
       });
   } catch (error) {
-    res.status(500).json({ error: 'Failed to read the CSV file' });
+    res.status(500).json({ error: 'Failed to read the CSV file', details: (error as Error).message });
   }
 }

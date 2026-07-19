@@ -1,0 +1,39 @@
+[project]
+name = "yomu"
+version = "0.1.0"
+description = "Language Memory - a personal spaced-repetition memory service for LLM-driven language learning"
+requires-python = ">=3.12"
+dependencies = [
+    "fsrs>=5.0",
+    "mcp>=1.9",
+    "mangum>=0.19",
+    "boto3>=1.34",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "moto[dynamodb,server]>=5.0",
+    "uvicorn>=0.30",
+    "ruff>=0.6",
+    "aws-cdk-lib>=2.150",
+    "constructs>=10.0",
+]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+src = ["src", "tests", "infra", "scripts"]
+extend-exclude = ["infra/cdk.out", "dist", "data"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]

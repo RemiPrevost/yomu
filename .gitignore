@@ -40,5 +40,10 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+**/__pycache__/**
+
 # application
 data/answer_logs.json
+/data/seed-cache/
+/dist/
+/infra/cdk.out/

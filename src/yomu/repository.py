@@ -44,6 +44,26 @@ class Repository:
     def put_profile(self, user_id: str, lang: str, profile: Profile) -> None:
         self._table.put_item(Item=profile.to_dynamo(keys.pk(user_id, lang)))
 
+    # ---- user identity mapping ----
+    # Auth phase 2: Cognito's `sub` is the external identity. A USERMAP row
+    # points it at an internal user_id so pre-Cognito data (u_001) survives;
+    # without a row, the sub itself is the user_id (new users).
+
+    def get_user_mapping(self, external_id: str) -> str | None:
+        resp = self._table.get_item(Key={"PK": f"USERMAP#{external_id}", "SK": "MAPPING"})
+        record = resp.get("Item")
+        return record.get("user_id") if record else None
+
+    def put_user_mapping(self, external_id: str, user_id: str) -> None:
+        self._table.put_item(
+            Item={
+                "PK": f"USERMAP#{external_id}",
+                "SK": "MAPPING",
+                "entity": "usermap",
+                "user_id": user_id,
+            }
+        )
+
     # ---- concepts ----
 
     def get_concept(self, user_id: str, lang: str, concept_id: str) -> Concept | None:

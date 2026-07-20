@@ -1,9 +1,9 @@
 # Language Memory — Specification
 
 A personal spaced-repetition memory service for LLM-driven language learning.
-LLM clients (Claude.ai, ChatGPT) connect via MCP, generate exercises, and read/write
-review state. The server owns all scheduling logic (FSRS). Personal project,
-single developer, a handful of users eventually.
+Claude clients (Claude.ai, Claude Desktop) connect via MCP, generate exercises,
+and read/write review state. The server owns all scheduling logic (FSRS). Personal
+project, single developer, a handful of users eventually.
 
 ## 1. Problem and division of labor
 
@@ -29,8 +29,12 @@ Division of labor (core architectural principle):
 - **MCP Python SDK** (FastMCP-style tool definitions)
 - **CDK in Python** for all infrastructure
 - **Auth phase 1**: static bearer token checked in the Lambda (env var / SSM).
-  **Auth phase 2 (later, out of scope now)**: Cognito user pool as OAuth 2.1
-  authorization server; Cognito `sub` becomes the user_id.
+  **Auth phase 2 (implemented 2026-07-20)**: Cognito user pool as OAuth 2.1
+  authorization server (hosted UI, code + PKCE; client ID entered manually in
+  claude.ai's connector settings). The server publishes its own RFC 8414
+  authorization-server metadata pointing at the Cognito hosted UI, validates
+  access-token JWTs (JWKS), and maps `sub` → internal user_id via USERMAP rows;
+  the static token remains as a tooling/break-glass fallback.
 - Seeding: one-off local Python script (JLPT N5 list, ~800 concepts), not infrastructure
 - Estimated cost: < $1/month
 
@@ -285,7 +289,6 @@ be un-taught to connected clients.
 - Personal FSRS parameter fitting once ~1000 reviews are logged
 - Whether Easy (grade 4) is exposed to the LLM at all, or collapsed to 3 grades
 - get_progress UI beyond chat (a web page, someday, maybe never)
-- ChatGPT connector specifics (works with the same MCP endpoint + OAuth in phase 2)
 
 ## 8. Conventions
 

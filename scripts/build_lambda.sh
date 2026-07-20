@@ -17,7 +17,7 @@ mkdir -p "$OUT"
     --implementation cp \
     --python-version 3.13 \
     --only-binary=:all: \
-    "fsrs>=5.0" "mcp>=1.9" "mangum>=0.19"
+    "fsrs>=5.0" "mcp>=1.9" "mangum>=0.19" "pyjwt[crypto]>=2.8"
 
 cp -R "$ROOT/src/yomu" "$OUT/yomu"
 

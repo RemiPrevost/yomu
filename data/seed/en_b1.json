@@ -1,0 +1,1756 @@
+[
+ {
+  "unit": 1,
+  "idx": 1,
+  "head": "diving",
+  "pos": "noun",
+  "fr": [
+   "la plongée (sous-marine)"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 2,
+  "head": "festival",
+  "pos": "noun",
+  "fr": [
+   "un festival"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 3,
+  "head": "personal",
+  "pos": "adjective",
+  "fr": [
+   "personnel"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 4,
+  "head": "quality",
+  "pos": "noun",
+  "fr": [
+   "une qualité"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 5,
+  "head": "creative",
+  "pos": "adjective",
+  "fr": [
+   "créatif"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 6,
+  "head": "honest",
+  "pos": "adjective",
+  "fr": [
+   "honnête"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 7,
+  "head": "polite",
+  "pos": "adjective",
+  "fr": [
+   "poli"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 8,
+  "head": "journalist",
+  "pos": "noun",
+  "fr": [
+   "journaliste"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 9,
+  "head": "dress",
+  "pos": "verb",
+  "fr": [
+   "s'habiller"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 10,
+  "head": "pavement",
+  "pos": "noun",
+  "fr": [
+   "le trottoir"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 11,
+  "head": "wave",
+  "pos": "verb",
+  "fr": [
+   "faire signe de la main",
+   "saluer de la main"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 12,
+  "head": "pedestrian",
+  "pos": "noun",
+  "fr": [
+   "un piéton"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 13,
+  "head": "safely",
+  "pos": "adverb",
+  "fr": [
+   "en sécurité",
+   "sans danger"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 14,
+  "head": "seat belt",
+  "pos": "noun",
+  "fr": [
+   "la ceinture de sécurité"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 15,
+  "head": "performance",
+  "pos": "noun",
+  "fr": [
+   "un spectacle",
+   "une représentation"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 16,
+  "head": "film set",
+  "pos": "noun",
+  "fr": [
+   "un plateau de tournage"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 17,
+  "head": "urban",
+  "pos": "adjective",
+  "fr": [
+   "urbain"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 18,
+  "head": "educator",
+  "pos": "noun",
+  "fr": [
+   "un éducateur",
+   "un enseignant"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 19,
+  "head": "spirit",
+  "pos": "noun",
+  "fr": [
+   "l'esprit",
+   "l'état d'esprit"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 20,
+  "head": "positive",
+  "pos": "adjective",
+  "fr": [
+   "positif"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 21,
+  "head": "control",
+  "pos": "verb",
+  "fr": [
+   "contrôler",
+   "maîtriser"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 22,
+  "head": "road safety",
+  "pos": "noun",
+  "fr": [
+   "la sécurité routière"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 23,
+  "head": "part-time",
+  "pos": "adjective",
+  "fr": [
+   "à temps partiel"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 24,
+  "head": "chance",
+  "pos": "noun",
+  "fr": [
+   "une occasion",
+   "une possibilité"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 25,
+  "head": "skill",
+  "pos": "noun",
+  "fr": [
+   "une compétence",
+   "une aptitude"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 26,
+  "head": "community",
+  "pos": "noun",
+  "fr": [
+   "une communauté"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 27,
+  "head": "salary",
+  "pos": "noun",
+  "fr": [
+   "un salaire"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 28,
+  "head": "more importantly",
+  "pos": "adverb",
+  "fr": [
+   "plus important encore",
+   "surtout"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 29,
+  "head": "opportunity",
+  "pos": "noun",
+  "fr": [
+   "une occasion",
+   "une opportunité"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 30,
+  "head": "topic",
+  "pos": "noun",
+  "fr": [
+   "un sujet",
+   "un thème"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 31,
+  "head": "environment",
+  "pos": "noun",
+  "fr": [
+   "l'environnement"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 32,
+  "head": "look out for",
+  "pos": "phrasal-verb",
+  "fr": [
+   "faire attention à",
+   "guetter"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 33,
+  "head": "strap",
+  "pos": "noun",
+  "fr": [
+   "une sangle",
+   "une lanière"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 34,
+  "head": "attach",
+  "pos": "verb",
+  "fr": [
+   "attacher",
+   "joindre (un fichier)"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 35,
+  "head": "film",
+  "pos": "verb",
+  "fr": [
+   "filmer"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 36,
+  "head": "in trouble",
+  "pos": "expression",
+  "fr": [
+   "en difficulté",
+   "dans le pétrin"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 37,
+  "head": "situation",
+  "pos": "noun",
+  "fr": [
+   "une situation"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 38,
+  "head": "fit in",
+  "pos": "phrasal-verb",
+  "fr": [
+   "s'intégrer",
+   "s'accorder"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 39,
+  "head": "event",
+  "pos": "noun",
+  "fr": [
+   "un événement"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 40,
+  "head": "logical",
+  "pos": "adjective",
+  "fr": [
+   "logique"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 41,
+  "head": "performer",
+  "pos": "noun",
+  "fr": [
+   "un artiste (interprète)"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 42,
+  "head": "suddenly",
+  "pos": "adverb",
+  "fr": [
+   "soudain",
+   "tout à coup"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 43,
+  "head": "programme",
+  "pos": "noun",
+  "fr": [
+   "un programme"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 44,
+  "head": "behave",
+  "pos": "verb",
+  "fr": [
+   "bien se comporter",
+   "bien se tenir"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 45,
+  "head": "persuade",
+  "pos": "verb",
+  "fr": [
+   "persuader",
+   "convaincre"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 46,
+  "head": "personality",
+  "pos": "noun",
+  "fr": [
+   "la personnalité"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 47,
+  "head": "architect",
+  "pos": "noun",
+  "fr": [
+   "un architecte"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 48,
+  "head": "astronaut",
+  "pos": "noun",
+  "fr": [
+   "un astronaute"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 49,
+  "head": "athlete",
+  "pos": "noun",
+  "fr": [
+   "un athlète"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 50,
+  "head": "camera operator",
+  "pos": "noun",
+  "fr": [
+   "un cadreur",
+   "un opérateur de caméra"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 51,
+  "head": "firefighter",
+  "pos": "noun",
+  "fr": [
+   "un pompier"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 52,
+  "head": "hairdresser",
+  "pos": "noun",
+  "fr": [
+   "un coiffeur"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 53,
+  "head": "lawyer",
+  "pos": "noun",
+  "fr": [
+   "un avocat"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 54,
+  "head": "librarian",
+  "pos": "noun",
+  "fr": [
+   "un bibliothécaire"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 55,
+  "head": "politician",
+  "pos": "noun",
+  "fr": [
+   "un homme / une femme politique"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 56,
+  "head": "run",
+  "pos": "verb",
+  "fr": [
+   "diriger",
+   "gérer"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 57,
+  "head": "sportsperson",
+  "pos": "noun",
+  "fr": [
+   "un sportif"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 58,
+  "head": "design",
+  "pos": "verb",
+  "fr": [
+   "concevoir",
+   "dessiner"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 59,
+  "head": "fight",
+  "pos": "verb",
+  "fr": [
+   "se battre",
+   "combattre"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 60,
+  "head": "put out",
+  "pos": "phrasal-verb",
+  "fr": [
+   "éteindre (un feu)"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 61,
+  "head": "space",
+  "pos": "noun",
+  "fr": [
+   "l'espace",
+   "le cosmos"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 62,
+  "head": "law",
+  "pos": "noun",
+  "fr": [
+   "la loi",
+   "le droit"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 63,
+  "head": "care centre",
+  "pos": "noun",
+  "fr": [
+   "un centre de soins (pour personnes âgées)"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 64,
+  "head": "hard-working",
+  "pos": "adjective",
+  "fr": [
+   "travailleur",
+   "assidu"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 65,
+  "head": "jealous",
+  "pos": "adjective",
+  "fr": [
+   "jaloux"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 66,
+  "head": "generous",
+  "pos": "adjective",
+  "fr": [
+   "généreux"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 67,
+  "head": "though",
+  "pos": "adverb",
+  "fr": [
+   "cependant",
+   "pourtant"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 68,
+  "head": "relaxed",
+  "pos": "adjective",
+  "fr": [
+   "détendu"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 69,
+  "head": "nervous",
+  "pos": "adjective",
+  "fr": [
+   "nerveux",
+   "anxieux"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 70,
+  "head": "upset",
+  "pos": "verb",
+  "fr": [
+   "contrarier",
+   "peiner"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 71,
+  "head": "unkind",
+  "pos": "adjective",
+  "fr": [
+   "méchant",
+   "peu aimable"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 72,
+  "head": "shy",
+  "pos": "adjective",
+  "fr": [
+   "timide"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 73,
+  "head": "sociable",
+  "pos": "adjective",
+  "fr": [
+   "sociable"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 74,
+  "head": "quite",
+  "pos": "adverb",
+  "fr": [
+   "assez",
+   "plutôt"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 75,
+  "head": "reliable",
+  "pos": "adjective",
+  "fr": [
+   "fiable"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 76,
+  "head": "calm",
+  "pos": "adjective",
+  "fr": [
+   "calme"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 77,
+  "head": "recently",
+  "pos": "adverb",
+  "fr": [
+   "récemment"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 78,
+  "head": "fortunately",
+  "pos": "adverb",
+  "fr": [
+   "heureusement"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 79,
+  "head": "annoyed",
+  "pos": "adjective",
+  "fr": [
+   "agacé",
+   "énervé"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 80,
+  "head": "patient",
+  "pos": "adjective",
+  "fr": [
+   "patient"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 81,
+  "head": "anxious",
+  "pos": "adjective",
+  "fr": [
+   "anxieux",
+   "inquiet"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 82,
+  "head": "confident",
+  "pos": "adjective",
+  "fr": [
+   "sûr de soi",
+   "confiant"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 83,
+  "head": "cheerful",
+  "pos": "adjective",
+  "fr": [
+   "joyeux",
+   "gai"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 84,
+  "head": "miserable",
+  "pos": "adjective",
+  "fr": [
+   "malheureux",
+   "triste"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 85,
+  "head": "serious",
+  "pos": "adjective",
+  "fr": [
+   "sérieux"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 86,
+  "head": "career",
+  "pos": "noun",
+  "fr": [
+   "une carrière"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 87,
+  "head": "focus",
+  "pos": "noun",
+  "fr": [
+   "le point central",
+   "le centre d'attention"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 88,
+  "head": "wildlife",
+  "pos": "noun",
+  "fr": [
+   "la faune (et la flore) sauvage"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 89,
+  "head": "equipment",
+  "pos": "noun",
+  "fr": [
+   "l'équipement",
+   "le matériel"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 90,
+  "head": "habit",
+  "pos": "noun",
+  "fr": [
+   "une habitude"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 91,
+  "head": "repeated",
+  "pos": "adjective",
+  "fr": [
+   "répété"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 92,
+  "head": "permanent",
+  "pos": "adjective",
+  "fr": [
+   "permanent"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 93,
+  "head": "scientific",
+  "pos": "adjective",
+  "fr": [
+   "scientifique"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 94,
+  "head": "based on",
+  "pos": "expression",
+  "fr": [
+   "basé sur",
+   "fondé sur"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 95,
+  "head": "schedule",
+  "pos": "noun",
+  "fr": [
+   "un emploi du temps",
+   "un planning"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 96,
+  "head": "temporary",
+  "pos": "adjective",
+  "fr": [
+   "temporaire"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 97,
+  "head": "annoying",
+  "pos": "adjective",
+  "fr": [
+   "agaçant",
+   "énervant"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 98,
+  "head": "developing",
+  "pos": "adjective",
+  "fr": [
+   "en développement"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 99,
+  "head": "own",
+  "pos": "verb",
+  "fr": [
+   "posséder"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 100,
+  "head": "fire service",
+  "pos": "noun",
+  "fr": [
+   "les pompiers",
+   "le service d'incendie"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 101,
+  "head": "lecture",
+  "pos": "noun",
+  "fr": [
+   "un cours magistral",
+   "une conférence"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 102,
+  "head": "eco",
+  "pos": "adjective",
+  "fr": [
+   "éco- (écologique)"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 103,
+  "head": "predict",
+  "pos": "verb",
+  "fr": [
+   "prédire",
+   "prévoir"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 104,
+  "head": "mention",
+  "pos": "verb",
+  "fr": [
+   "mentionner"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 105,
+  "head": "response",
+  "pos": "noun",
+  "fr": [
+   "une réponse"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 106,
+  "head": "travelling",
+  "pos": "noun",
+  "fr": [
+   "les voyages"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 107,
+  "head": "get on",
+  "pos": "phrasal-verb",
+  "fr": [
+   "bien s'entendre (avec qn)"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 108,
+  "head": "argue",
+  "pos": "verb",
+  "fr": [
+   "se disputer",
+   "discuter"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 109,
+  "head": "memorise",
+  "pos": "verb",
+  "fr": [
+   "mémoriser",
+   "apprendre par cœur"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 110,
+  "head": "unnatural",
+  "pos": "adjective",
+  "fr": [
+   "anormal",
+   "peu naturel"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 111,
+  "head": "pause",
+  "pos": "verb",
+  "fr": [
+   "faire une pause",
+   "s'interrompre"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 112,
+  "head": "slightly",
+  "pos": "adverb",
+  "fr": [
+   "légèrement",
+   "un peu"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 113,
+  "head": "typical",
+  "pos": "adjective",
+  "fr": [
+   "typique"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 114,
+  "head": "candidate",
+  "pos": "noun",
+  "fr": [
+   "un candidat"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 115,
+  "head": "full-time",
+  "pos": "adjective",
+  "fr": [
+   "à temps plein"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 116,
+  "head": "retired",
+  "pos": "adjective",
+  "fr": [
+   "à la retraite",
+   "retraité"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 117,
+  "head": "qualification",
+  "pos": "noun",
+  "fr": [
+   "un diplôme",
+   "une qualification"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 118,
+  "head": "unemployed",
+  "pos": "adjective",
+  "fr": [
+   "au chômage",
+   "sans emploi"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 119,
+  "head": "apply",
+  "pos": "verb",
+  "fr": [
+   "postuler",
+   "se porter candidat"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 120,
+  "head": "get married",
+  "pos": "expression",
+  "fr": [
+   "se marier"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 121,
+  "head": "grow up",
+  "pos": "phrasal-verb",
+  "fr": [
+   "grandir",
+   "devenir adulte"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 122,
+  "head": "go out with",
+  "pos": "phrasal-verb",
+  "fr": [
+   "sortir avec (qn)"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 123,
+  "head": "split up",
+  "pos": "phrasal-verb",
+  "fr": [
+   "se séparer",
+   "rompre"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 124,
+  "head": "out of work",
+  "pos": "expression",
+  "fr": [
+   "sans emploi",
+   "au chômage"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 125,
+  "head": "bring up",
+  "pos": "phrasal-verb",
+  "fr": [
+   "élever (un enfant)"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 126,
+  "head": "advantage",
+  "pos": "noun",
+  "fr": [
+   "un avantage"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 127,
+  "head": "disadvantage",
+  "pos": "noun",
+  "fr": [
+   "un inconvénient",
+   "un désavantage"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 128,
+  "head": "retire",
+  "pos": "verb",
+  "fr": [
+   "prendre sa retraite"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 129,
+  "head": "wedding",
+  "pos": "noun",
+  "fr": [
+   "un mariage (cérémonie)"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 130,
+  "head": "communication",
+  "pos": "noun",
+  "fr": [
+   "la communication"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 131,
+  "head": "colleague",
+  "pos": "noun",
+  "fr": [
+   "un collègue"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 132,
+  "head": "separate",
+  "pos": "adjective",
+  "fr": [
+   "séparé",
+   "distinct"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 133,
+  "head": "item",
+  "pos": "noun",
+  "fr": [
+   "un article",
+   "un objet"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 134,
+  "head": "abstract",
+  "pos": "adjective",
+  "fr": [
+   "abstrait"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 135,
+  "head": "a number of",
+  "pos": "determiner",
+  "fr": [
+   "un certain nombre de",
+   "plusieurs"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 136,
+  "head": "colloquial",
+  "pos": "adjective",
+  "fr": [
+   "familier (langage)"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 137,
+  "head": "contraction",
+  "pos": "noun",
+  "fr": [
+   "une contraction",
+   "une forme contractée"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 138,
+  "head": "exclamation mark",
+  "pos": "noun",
+  "fr": [
+   "un point d'exclamation"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 139,
+  "head": "Yours sincerely",
+  "pos": "expression",
+  "fr": [
+   "« Veuillez agréer mes salutations distinguées »"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 140,
+  "head": "awesome",
+  "pos": "adjective",
+  "fr": [
+   "génial",
+   "impressionnant"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 141,
+  "head": "regards",
+  "pos": "noun",
+  "fr": [
+   "salutations",
+   "amitiés"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 142,
+  "head": "fair",
+  "pos": "noun",
+  "fr": [
+   "un salon",
+   "une foire"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 143,
+  "head": "holiday camp",
+  "pos": "noun",
+  "fr": [
+   "une colonie de vacances"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 144,
+  "head": "volunteer",
+  "pos": "adjective",
+  "fr": [
+   "bénévole",
+   "volontaire"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 145,
+  "head": "wonder",
+  "pos": "verb",
+  "fr": [
+   "se demander"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 146,
+  "head": "sign off",
+  "pos": "phrasal-verb",
+  "fr": [
+   "conclure (une lettre / un e-mail)"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 147,
+  "head": "team player",
+  "pos": "noun",
+  "fr": [
+   "une personne qui a l'esprit d'équipe"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 148,
+  "head": "confidence",
+  "pos": "noun",
+  "fr": [
+   "la confiance (en soi)"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 149,
+  "head": "respect",
+  "pos": "verb",
+  "fr": [
+   "respecter",
+   "admirer"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 150,
+  "head": "support",
+  "pos": "verb",
+  "fr": [
+   "soutenir"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 151,
+  "head": "communicate",
+  "pos": "verb",
+  "fr": [
+   "communiquer"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 152,
+  "head": "no way!",
+  "pos": "expression",
+  "fr": [
+   "pas question !",
+   "impossible !"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 153,
+  "head": "background",
+  "pos": "noun",
+  "fr": [
+   "l'arrière-plan",
+   "le fond"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 154,
+  "head": "research",
+  "pos": "noun",
+  "fr": [
+   "la recherche",
+   "les recherches"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 155,
+  "head": "leader",
+  "pos": "noun",
+  "fr": [
+   "un chef",
+   "un meneur"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 156,
+  "head": "differently",
+  "pos": "adverb",
+  "fr": [
+   "différemment"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 157,
+  "head": "be worth",
+  "pos": "expression",
+  "fr": [
+   "valoir (la peine)"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 158,
+  "head": "encourage",
+  "pos": "verb",
+  "fr": [
+   "encourager"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 159,
+  "head": "strength",
+  "pos": "noun",
+  "fr": [
+   "une force",
+   "un point fort"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 160,
+  "head": "make your voice heard",
+  "pos": "expression",
+  "fr": [
+   "faire entendre sa voix"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 161,
+  "head": "rope",
+  "pos": "noun",
+  "fr": [
+   "une corde"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 162,
+  "head": "compass",
+  "pos": "noun",
+  "fr": [
+   "une boussole"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 163,
+  "head": "match",
+  "pos": "noun",
+  "fr": [
+   "une allumette"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 164,
+  "head": "raise money",
+  "pos": "expression",
+  "fr": [
+   "collecter des fonds",
+   "récolter de l'argent"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 165,
+  "head": "divide",
+  "pos": "verb",
+  "fr": [
+   "diviser",
+   "partager"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 166,
+  "head": "suggestion",
+  "pos": "noun",
+  "fr": [
+   "une suggestion",
+   "une proposition"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 167,
+  "head": "vote",
+  "pos": "verb",
+  "fr": [
+   "voter"
+  ],
+  "level": "B1"
+ },
+ {
+  "unit": 1,
+  "idx": 168,
+  "head": "presenter",
+  "pos": "noun",
+  "fr": [
+   "un présentateur"
+  ],
+  "level": "B1"
+ }
+]

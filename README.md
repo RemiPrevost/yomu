@@ -1,7 +1,7 @@
 # Yomu — Language Memory
 
 A personal spaced-repetition memory service for LLM-driven language learning.
-LLM clients (Claude.ai, ChatGPT) connect via MCP, generate exercises, and
+LLM clients (Claude.ai, Claude Desktop) connect via MCP, generate exercises, and
 read/write review state. The server owns all scheduling (FSRS via `py-fsrs`).
 
 Full design: [SPEC.md](SPEC.md).
@@ -82,8 +82,31 @@ The stack outputs `McpEndpoint` — the URL to give to MCP clients.
 Downloads the N5 list (elzup/jlpt-word-list) and jmdict-fre (French glosses,
 POS) on first run, cached under `data/seed-cache/`.
 
+## Auth
+
+Two paths, both active:
+- **OAuth (Cognito)** — the real one. The server is an OAuth 2.1 resource
+  server; Cognito (user pool `yomu-users`) is the authorization server. The
+  token's `sub` is mapped to the internal user_id via a `USERMAP#<sub>` row
+  (`scripts/link_user.py`). Users are created by hand:
+  ```sh
+  aws cognito-idp admin-create-user --user-pool-id <UserPoolId> \
+      --username <email> --user-attributes Name=email,Value=<email> Name=email_verified,Value=true
+  python scripts/link_user.py <sub> <internal-user-id>
+  ```
+- **Static bearer** (`/yomu/auth-token` SSM param) — kept as a break-glass and
+  tooling fallback; maps to the `USER_ID` env user.
+
 ## Connect from Claude.ai
 
 Settings → Connectors → Add custom connector:
 - URL: the `McpEndpoint` stack output
-- Auth: Bearer token = the value stored in `/yomu/auth-token`
+- Advanced settings → OAuth Client ID: the `OAuthClientId` stack output
+  (no client secret — public client with PKCE, so the client ID is entered
+  manually)
+
+First connection opens the Cognito hosted UI: sign in with the invitation
+password from email, set a permanent one, done.
+
+Claude Desktop / MCP Inspector work the same way (their localhost OAuth
+callbacks are pre-registered on the app client), or with the static bearer.

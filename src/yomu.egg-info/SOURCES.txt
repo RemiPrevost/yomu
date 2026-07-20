@@ -1,6 +1,7 @@
 README.md
 pyproject.toml
 src/yomu/__init__.py
+src/yomu/auth.py
 src/yomu/fsrs_service.py
 src/yomu/guidance.py
 src/yomu/ids.py
@@ -16,6 +17,7 @@ src/yomu.egg-info/SOURCES.txt
 src/yomu.egg-info/dependency_links.txt
 src/yomu.egg-info/requires.txt
 src/yomu.egg-info/top_level.txt
+tests/test_auth.py
 tests/test_fsrs_service.py
 tests/test_ids.py
 tests/test_service.py

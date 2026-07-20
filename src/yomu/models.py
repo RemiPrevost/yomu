@@ -27,19 +27,28 @@ STATE_RELEARNING = "relearning"
 LEECH_LAPSES = 4  # lapses >= 4 → leech signal surfaced in queue payload
 
 POS_VALUES = {
+    # Japanese-specific verb/adjective classes
     "verb-ichidan",
     "verb-godan",
     "verb-irregular",
-    "noun",
     "adj-i",
     "adj-na",
-    "adverb",
     "particle",
-    "pronoun",
     "counter",
-    "conjunction",
-    "interjection",
     "prenominal",
+    # Generic / European-language parts of speech
+    "noun",
+    "verb",
+    "adjective",
+    "adverb",
+    "pronoun",
+    "preposition",
+    "conjunction",
+    "determiner",
+    "interjection",
+    "phrasal-verb",
+    "prefix",
+    "abbreviation",
     "expression",
     "grammar",
 }

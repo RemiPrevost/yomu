@@ -1,4 +1,9 @@
-"""MCP server: 4 tools over streamable HTTP (stateless), behind a bearer token.
+"""MCP server: 4 tools over streamable HTTP (stateless).
+
+Auth: with COGNITO_ISSUER set, the server is an OAuth 2.1 resource server —
+Cognito JWTs are validated and the token's `sub` selects the user (mapped
+through USERMAP rows). Without it (local dev), a static bearer token guards
+everything and the user comes from the USER_ID env var.
 
 Runs on Lambda via a Function URL (mangum adapter). Tool descriptions are part
 of the product: they are auto-distributed to every connected LLM client and
@@ -8,12 +13,52 @@ carry the grading rubric and usage rules.
 import os
 from typing import Annotated, Any
 
+from mcp.server.auth.middleware.auth_context import get_access_token
+from mcp.server.auth.settings import AuthSettings
 from mcp.server.fastmcp import FastMCP
 from mcp.server.transport_security import TransportSecuritySettings
 from pydantic import BaseModel, Field
 
+from yomu.auth import CognitoTokenVerifier, resolve_static_token
 from yomu.repository import Repository
 from yomu.service import LanguageMemoryService
+
+COGNITO_ISSUER = os.environ.get("COGNITO_ISSUER")
+
+
+def _public_origin() -> str:
+    """Origin of the public MCP URL, e.g. https://xxx.lambda-url...on.aws"""
+    from urllib.parse import urlsplit
+
+    parts = urlsplit(os.environ["MCP_PUBLIC_URL"])
+    return f"{parts.scheme}://{parts.netloc}"
+
+
+def _auth_config() -> tuple[AuthSettings | None, CognitoTokenVerifier | None]:
+    if not COGNITO_ISSUER:
+        return None, None
+    verifier = CognitoTokenVerifier(
+        issuer=COGNITO_ISSUER,
+        client_id=os.environ["COGNITO_CLIENT_ID"],
+        # Phase-1 static token stays valid as a break-glass / tooling path.
+        static_token=resolve_static_token(),
+        static_user_id=os.environ.get("USER_ID", "u_001"),
+    )
+    # The advertised authorization server is THIS server, not Cognito:
+    # Cognito publishes no RFC 8414 metadata and its OIDC document neither
+    # advertises PKCE (code_challenge_methods_supported) nor public-client
+    # token auth ("none"), so MCP clients abort before redirecting. We serve
+    # a compliant metadata document ourselves (routes below) whose endpoints
+    # point at the Cognito hosted UI.
+    settings = AuthSettings(
+        issuer_url=_public_origin(),
+        resource_server_url=os.environ["MCP_PUBLIC_URL"],
+        required_scopes=None,
+    )
+    return settings, verifier
+
+
+_auth_settings, _token_verifier = _auth_config()
 
 mcp = FastMCP(
     "language-memory",
@@ -27,23 +72,73 @@ mcp = FastMCP(
     ),
     stateless_http=True,
     json_response=True,
+    auth=_auth_settings,
+    token_verifier=_token_verifier,
     # DNS-rebinding protection is for localhost servers; behind a public
-    # Function URL the bearer token is the access control, and the Host
+    # Function URL the bearer/OAuth token is the access control, and the Host
     # header is not known until the URL is created.
     transport_security=TransportSecuritySettings(enable_dns_rebinding_protection=False),
 )
 
-_service_instance: LanguageMemoryService | None = None
+if COGNITO_ISSUER:
+    from starlette.requests import Request
+    from starlette.responses import JSONResponse
+
+    def _as_metadata() -> dict[str, Any]:
+        """RFC 8414 authorization-server metadata, proxied for Cognito.
+
+        issuer must match the AuthSettings issuer_url as serialized into the
+        protected-resource metadata (pydantic's AnyHttpUrl appends a trailing
+        slash to origin-only URLs), or strict clients reject the document.
+        """
+        hosted = os.environ["COGNITO_HOSTED_DOMAIN"].rstrip("/")
+        return {
+            "issuer": str(mcp.settings.auth.issuer_url),
+            "authorization_endpoint": f"{hosted}/oauth2/authorize",
+            "token_endpoint": f"{hosted}/oauth2/token",
+            "userinfo_endpoint": f"{hosted}/oauth2/userInfo",
+            "revocation_endpoint": f"{hosted}/oauth2/revoke",
+            "jwks_uri": f"{COGNITO_ISSUER}/.well-known/jwks.json",
+            "response_types_supported": ["code"],
+            "grant_types_supported": ["authorization_code", "refresh_token"],
+            "code_challenge_methods_supported": ["S256"],
+            "token_endpoint_auth_methods_supported": ["none"],
+            "scopes_supported": ["openid", "email", "profile"],
+        }
+
+    @mcp.custom_route("/.well-known/oauth-authorization-server", methods=["GET"])
+    async def oauth_authorization_server(request: Request) -> JSONResponse:
+        return JSONResponse(_as_metadata())
+
+    # Fallback for clients that try OIDC discovery instead of RFC 8414.
+    @mcp.custom_route("/.well-known/openid-configuration", methods=["GET"])
+    async def openid_configuration(request: Request) -> JSONResponse:
+        return JSONResponse(_as_metadata())
+
+
+_repo_instance: Repository | None = None
+_user_id_cache: dict[str, str] = {}
+
+
+def _repo() -> Repository:
+    global _repo_instance
+    if _repo_instance is None:
+        _repo_instance = Repository(os.environ["TABLE_NAME"])
+    return _repo_instance
 
 
 def _service() -> LanguageMemoryService:
-    global _service_instance
-    if _service_instance is None:
-        _service_instance = LanguageMemoryService(
-            Repository(os.environ["TABLE_NAME"]),
-            user_id=os.environ.get("USER_ID", "u_001"),
-        )
-    return _service_instance
+    """Service bound to the caller's identity.
+
+    OAuth path: identity is the verified token's subject (Cognito sub or the
+    static-token user), mapped through USERMAP so pre-Cognito data is reachable.
+    Legacy path (no Cognito configured): USER_ID env var.
+    """
+    token = get_access_token()
+    external = token.subject if token and token.subject else os.environ.get("USER_ID", "u_001")
+    if external not in _user_id_cache:
+        _user_id_cache[external] = _repo().get_user_mapping(external) or external
+    return LanguageMemoryService(_repo(), _user_id_cache[external])
 
 
 class ReviewResult(BaseModel):
@@ -105,6 +200,12 @@ def get_review_queue(
     throttled by the user's daily budget — do not ration them further.
     Each entry carries full display data; you never need another call to build
     a lesson. Follow the `guidance` hints when composing the session.
+
+    `stats` also reports read-only context: the user's `settings`
+    (new_per_day, desired_retention, ui_lang) and today's drip usage
+    (new_introduced_today, new_remaining_today) — use these to explain state
+    to the user. They are not changeable through any tool; the server owns
+    scheduling, and limit changes are done by the administrator.
     """
     return _service().get_review_queue(lang, max_due=max_due, max_new=max_new)
 
@@ -131,6 +232,13 @@ def record_result(
     one again in 10 minutes / tomorrow") — it is not writable. Newly learned
     items come back within minutes: if the session is still open when they
     are due, fetch the queue again and re-test them.
+
+    Grade ONLY items that get_review_queue served this session. Grading a
+    backlog item the queue did not serve introduces it immediately and
+    consumes the daily new-item budget (the response notes it) — do this only
+    if the user explicitly asks for extra material. If the session ends
+    before every served item was tested, report the untested ones as skipped,
+    never as learned.
     """
     return _service().record_result(lang, [r.model_dump() for r in results])
 
@@ -165,12 +273,14 @@ def get_progress(
     return _service().get_progress(lang, period_days=period_days)
 
 
-# ---- HTTP wiring (bearer auth + Lambda adapter) ----
+# ---- HTTP wiring (auth + Lambda adapter) ----
 
 
 class BearerAuthMiddleware:
-    """Rejects any request whose Authorization header does not match the
-    static token (auth phase 1; Cognito OAuth comes later)."""
+    """Legacy phase-1 gate: rejects any request whose Authorization header
+    does not match the static token. Only used when Cognito is NOT
+    configured — with Cognito, the MCP SDK's auth middleware (JWT
+    verification + protected-resource metadata routes) takes over."""
 
     def __init__(self, app: Any):
         self._app = app
@@ -178,14 +288,7 @@ class BearerAuthMiddleware:
 
     def _expected(self) -> str:
         if self._token is None:
-            token = os.environ.get("AUTH_TOKEN")
-            if not token and os.environ.get("AUTH_TOKEN_PARAM"):
-                import boto3
-
-                ssm = boto3.client("ssm")
-                token = ssm.get_parameter(
-                    Name=os.environ["AUTH_TOKEN_PARAM"], WithDecryption=True
-                )["Parameter"]["Value"]
+            token = resolve_static_token()
             if not token:
                 raise RuntimeError("no AUTH_TOKEN or AUTH_TOKEN_PARAM configured")
             self._token = token
@@ -237,13 +340,20 @@ class LambdaSessionManagerStarter:
         await self._app(scope, receive, send)
 
 
+def _wrap_auth(app: Any) -> Any:
+    # Cognito mode: the SDK app already carries auth middleware + the
+    # /.well-known/oauth-protected-resource route; wrapping it in the static
+    # gate would 401 valid OAuth traffic.
+    return app if COGNITO_ISSUER else BearerAuthMiddleware(app)
+
+
 def build_app() -> Any:
     """ASGI app with a working lifespan — use this for local serving (uvicorn)."""
-    return BearerAuthMiddleware(mcp.streamable_http_app())
+    return _wrap_auth(mcp.streamable_http_app())
 
 
 def build_handler() -> Any:
     from mangum import Mangum
 
-    app = BearerAuthMiddleware(LambdaSessionManagerStarter(mcp.streamable_http_app(), mcp))
+    app = _wrap_auth(LambdaSessionManagerStarter(mcp.streamable_http_app(), mcp))
     return Mangum(app, lifespan="off")

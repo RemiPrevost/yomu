@@ -17,6 +17,7 @@ from yomu.models import (
     FACET_PRODUCTION,
     FACET_RECOGNITION,
     POS_VALUES,
+    STATE_NEW,
     TYPE_GRAMMAR,
     TYPE_VOCAB,
     Concept,
@@ -28,7 +29,8 @@ from yomu.repository import Repository
 MAX_DUE_CEILING = 50
 DEFAULT_MAX_DUE = 20
 POS_GRAMMAR = "grammar"  # default pos for grammar-point concepts
-LEVELS = {"N5", "N4", "N3", "N2", "N1", "none"}
+# JLPT (Japanese) and CEFR (European languages) proficiency bands.
+LEVELS = {"N5", "N4", "N3", "N2", "N1", "A1", "A2", "B1", "B2", "C1", "C2", "none"}
 SUCCESS_GRADE = 2  # grade >= 2 means the item was recalled (Hard is still a success)
 EXAMPLE_FIELD_MAX_CHARS = 500
 
@@ -100,6 +102,17 @@ class LanguageMemoryService:
             "total_review": total_review,
             "total_backlog": self._repo.count_backlog(self._user, lang),
             "streak_days": profile.streak_days,
+            # Read-only settings + today's drip usage, so the tutor can explain
+            # state to the user (e.g. "tu es à 10 nouveaux mots/jour, il t'en
+            # reste 3"). These are NOT writable via MCP by design — the server
+            # owns scheduling; changing them is an admin action.
+            "settings": {
+                "new_per_day": profile.new_per_day,
+                "desired_retention": profile.desired_retention,
+                "ui_lang": profile.ui_lang,
+            },
+            "new_introduced_today": introduced_today,
+            "new_remaining_today": remaining_drip,
         }
 
         return {
@@ -221,6 +234,7 @@ class LanguageMemoryService:
                 "note": "graded before due — logged, did not reschedule",
             }
 
+        was_new = item.state == STATE_NEW
         review = fsrs_service.apply_review(item, grade, profile.desired_retention, reviewed_at)
         self._repo.put_item(self._user, lang, item)
         self._repo.put_log(
@@ -238,12 +252,19 @@ class LanguageMemoryService:
         )
 
         entry = {"item_id": item.item_id, "next_due": item.due, "state": item.state}
+        notes = []
+        if was_new:
+            # Surface the cost in-band: introductions via record_result (items
+            # the queue never served) still consume the daily new-item budget.
+            notes.append("new item introduced — counts toward today's new-item budget")
         if (
             facet == FACET_RECOGNITION
             and grade >= SUCCESS_GRADE
             and self._unlock_production(lang, cid)
         ):
-            entry["note"] = "production facet unlocked for this concept"
+            notes.append("production facet unlocked for this concept")
+        if notes:
+            entry["note"] = "; ".join(notes)
         return entry
 
     def _unlock_production(self, lang: str, cid: str) -> bool:
@@ -492,17 +513,23 @@ class LanguageMemoryService:
         }
 
     def _coverage(self, lang: str) -> dict[str, Any]:
-        """Share of N5 concepts with at least one reviewed item."""
-        n5_cids = {
-            c.concept_id
-            for c in self._repo.iter_concepts(self._user, lang)
-            if c.level == "N5"
-        }
-        if not n5_cids:
-            return {"N5": None}
+        """Share of concepts reviewed at least once, per proficiency band.
+
+        Language-agnostic: reports whatever levels exist for this user (N5…
+        for Japanese, A1…C2 for CEFR languages), so English works unchanged.
+        """
+        by_level: dict[str, set[str]] = {}
+        for c in self._repo.iter_concepts(self._user, lang):
+            if c.level and c.level != "none":
+                by_level.setdefault(c.level, set()).add(c.concept_id)
+        if not by_level:
+            return {}
         seen = {
             item.concept_id
             for item in self._repo.iter_items(self._user, lang)
             if item.reps > 0
         }
-        return {"N5": round(len(n5_cids & seen) / len(n5_cids), 3)}
+        return {
+            level: round(len(cids & seen) / len(cids), 3)
+            for level, cids in sorted(by_level.items())
+        }

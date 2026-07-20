@@ -142,6 +142,27 @@ class TestReviewQueue:
         assert entry["concept"]["lemma"]
         assert entry["concept"]["meanings"]
 
+    def test_stats_exposes_read_only_settings_and_drip_usage(self, service):
+        for i in range(8):
+            service.add_items(LANG, [vocab(f"語彙{i}", f"ごい{i}", f"mot {i}")], now=NOW)
+        queue = service.get_review_queue(LANG, now=NOW)
+        stats = queue["stats"]
+        assert stats["settings"] == {
+            "new_per_day": 5,
+            "desired_retention": 0.9,
+            "ui_lang": "fr",
+        }
+        assert stats["new_introduced_today"] == 0
+        assert stats["new_remaining_today"] == 5
+
+        # After introducing 3, the remaining drip drops accordingly.
+        service.record_result(
+            LANG, [{"item_id": e["item_id"], "grade": 3} for e in queue["new"][:3]], now=NOW
+        )
+        stats2 = service.get_review_queue(LANG, now=NOW)["stats"]
+        assert stats2["new_introduced_today"] == 3
+        assert stats2["new_remaining_today"] == 2
+
     def test_max_new_respects_explicit_request(self, service):
         for i in range(4):
             service.add_items(LANG, [vocab(f"単語{i}", f"たんご{i}", f"mot {i}")], now=NOW)
@@ -218,6 +239,9 @@ class TestRecordResult:
         entry = resp["recorded"][0]
         assert entry["state"] == "learning"
         assert entry["next_due"] == (NOW + timedelta(minutes=10)).isoformat()
+        # A first review is an introduction; the note makes the budget cost
+        # visible to the client alongside the production-facet unlock.
+        assert "new item introduced" in entry["note"]
         # The recognition item left the backlog, but the successful review
         # unlocked the production facet, which enters it as a new item.
         backlog = repo.query_new_items("u_test", LANG, limit=10)

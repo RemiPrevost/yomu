@@ -154,12 +154,19 @@ that the LLM never needs a second call to build a lesson; errors are structured,
 actionable, and never fail a whole batch; grading rubric lives in the tool
 DESCRIPTION in the MCP schema (auto-distributed to every client).
 
-Grading rubric (put verbatim in record_result description):
-- 1 Again: could not produce / wrong meaning
-- 2 Hard: produced with hesitation, hint, or minor slip (kana/conjugation)
-- 3 Good: correct
-- 4 Easy: instant, effortless, or used spontaneously (use sparingly)
-One exercise can test several items → grade PER ITEM, not per exercise.
+Grading rubric (put verbatim in record_result description). Grades the
+QUALITY OF PRODUCTION, not just final correctness — correct meaning is
+necessary for 3/4 but not sufficient:
+- 1 Again: could not produce / wrong meaning.
+- 2 Hard: meaning right BUT hesitation / self-correction / hint needed / a
+  written-form slip (kana where kanji expected, okurigana, conjugation,
+  particle, misspelling, missing accent) — grade 2 even if ultimately correct.
+- 3 Good: correct AND clean — first try, no hesitation, hint, or slip.
+- 4 Easy: instant, effortless, or used spontaneously (use sparingly).
+When unsure between two grades, pick the lower one. One exercise can test
+several items → grade PER ITEM, not per exercise. (Rubric tightened 2026-07-23
+after observing systematic over-grading — the model rewarded correct substance
+and rationalised away hesitation/kana slips that the rubric assigns to Hard.)
 
 ### get_review_queue
 

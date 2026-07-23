@@ -217,12 +217,22 @@ def record_result(
 ) -> dict[str, Any]:
     """Report review outcomes so the server can reschedule each item (FSRS).
 
-    Grading rubric:
-    - 1 Again: could not produce / wrong meaning
-    - 2 Hard: produced with hesitation, hint, or minor slip (kana/conjugation)
-    - 3 Good: correct
-    - 4 Easy: instant, effortless, or used spontaneously (use sparingly)
-    One exercise can test several items → grade PER ITEM, not per exercise.
+    Grading rubric — grade the QUALITY OF PRODUCTION, not just whether the
+    final answer was right. A correct meaning is necessary for 3/4 but NOT
+    sufficient: how it came out decides the grade.
+    - 1 Again: could not produce, or wrong meaning.
+    - 2 Hard: the meaning was right BUT any of these happened — the learner
+      hesitated, paused, said "euh"/"je crois"/"?" or otherwise signalled
+      uncertainty; self-corrected; needed a hint or the first letter/sound;
+      OR the written form had a slip: kana where the kanji was expected, wrong
+      okurigana, a conjugation/particle wobble, a misspelling, a missing
+      accent. Grade 2 EVEN IF the answer was ultimately correct. Do not talk
+      yourself out of it ("the hesitation was unfounded" is still hesitation).
+    - 3 Good: correct AND clean — produced on the first try, without
+      hesitation, hints, or written-form slips.
+    - 4 Easy: instant, effortless, or used spontaneously (use sparingly).
+    When unsure between two grades, pick the lower one. One exercise can test
+    several items → grade PER ITEM, not per exercise.
 
     Call this after each exercise or small batch — do not wait for the end of
     the session. Unknown items are rejected individually; the rest of the
